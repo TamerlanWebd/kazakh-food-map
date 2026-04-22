@@ -1,3 +1,4 @@
+// v1.0.1 - Gastro Map Data
 export interface Dish {
   slug: string;
   name: string;
