@@ -20,6 +20,14 @@ export interface Drink {
   iconType: string;
 }
 
+export interface TasteProfile {
+  meatiness: number;
+  spice: number;
+  sweetness: number;
+  sourness: number;
+  fatness: number;
+}
+
 export interface Region {
   id: RegionId;
   title: string;
@@ -32,7 +40,7 @@ export interface Region {
   history: string;
   mainHighlight: string;
   featuredDishSlugs: string[];
-  tasteProfile: { meatiness: number; spice: number; sweetness: number; sourness: number; fatness: number };
+  tasteProfile: TasteProfile;
   adminUnits: { name: string; type: string }[];
 }
 
