@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Дәм Дала — интерактивная карта кухни Казахстана
 
-## Getting Started
+Современный веб-проект для туристов: художественная карта 5 макрорегионов Казахстана с детализацией по блюдам, напиткам, ингредиентам и историческому контексту.
 
-First, run the development server:
+В проекте отражены:
+- 5 макрорегионов (Север, Запад, Юг, Восток, Центр)
+- 17 областей
+- 3 города республиканского значения (Астана, Алматы, Шымкент)
+
+## Технологии
+
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS 4
+- Framer Motion
+
+## Локальный запуск
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+После запуска открыть [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Основная логика интерфейса
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Клик по региону на SVG-карте переключает контент панели.
+- Для каждого региона показаны:
+  - блюда
+  - напитки
+  - ключевые ингредиенты
+  - историко-культурное описание
+  - список областей/городов региона
+- Клик по области/городу открывает локальный гастро-акцент региона.
+- Добавлен каталог карточек блюд: переход на отдельные страницы `/dishes/[slug]`.
 
-## Learn More
+## Деплой на Vercel
 
-To learn more about Next.js, take a look at the following resources:
+1. Залить проект в GitHub.
+2. На Vercel выбрать `New Project` и импортировать репозиторий.
+3. Framework Preset определится автоматически как `Next.js`.
+4. Нажать `Deploy`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Локальный предпросмотр production-сборки:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm run start
+```
