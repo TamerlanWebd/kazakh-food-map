@@ -11,15 +11,24 @@ export interface Dish {
   touristTip: string;
 }
 
+export type RegionId = "north" | "west" | "south" | "east" | "central";
+
+export interface Drink {
+  name: string;
+  description: string;
+  benefit: string;
+  iconType: string;
+}
+
 export interface Region {
-  id: string;
+  id: RegionId;
   title: string;
   subtitle: string;
   color: string;
   stroke: string;
   activeColor: string;
   dishes: string[];
-  drinks: { name: string; description: string; benefit: string; iconType: string }[];
+  drinks: Drink[];
   history: string;
   mainHighlight: string;
   featuredDishSlugs: string[];
