@@ -1,4 +1,3 @@
-// v1.0.1 - Gastro Map Data
 export interface Dish {
   slug: string;
   name: string;
@@ -12,36 +11,19 @@ export interface Dish {
   touristTip: string;
 }
 
-export type RegionId = "north" | "west" | "south" | "east" | "central";
-
-export interface Drink {
-  name: string;
-  description: string;
-  benefit: string;
-  iconType: string;
-}
-
-export interface TasteProfile {
-  meatiness: number;
-  spice: number;
-  sweetness: number;
-  sourness: number;
-  fatness: number;
-}
-
 export interface Region {
-  id: RegionId;
+  id: string;
   title: string;
   subtitle: string;
   color: string;
   stroke: string;
   activeColor: string;
   dishes: string[];
-  drinks: Drink[];
+  drinks: { name: string; description: string; benefit: string; iconType: string }[];
   history: string;
   mainHighlight: string;
   featuredDishSlugs: string[];
-  tasteProfile: TasteProfile;
+  tasteProfile: { meatiness: number; spice: number; sweetness: number; sourness: number; fatness: number };
   adminUnits: { name: string; type: string }[];
 }
 
