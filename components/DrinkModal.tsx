@@ -35,7 +35,7 @@ export default function DrinkModal({ drink, isOpen, onClose, isDark }: DrinkModa
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className={`pointer-events-auto w-full max-w-2xl overflow-hidden rounded-[50px] border-4 shadow-2xl relative ${
+              className={`pointer-events-auto w-full max-w-2xl overflow-hidden rounded-[30px] md:rounded-[50px] border-4 shadow-2xl relative ${
                 isDark 
                   ? "bg-[#0a0c10]/95 border-white/10 text-white" 
                   : "bg-white/95 border-white text-gray-900"
@@ -43,14 +43,14 @@ export default function DrinkModal({ drink, isOpen, onClose, isDark }: DrinkModa
             >
               <button
                 onClick={onClose}
-                className="absolute right-8 top-8 z-10 rounded-full bg-black/10 p-2 text-current transition-all hover:bg-black/20 hover:scale-110"
+                className="absolute right-4 top-4 md:right-8 md:top-8 z-10 rounded-full bg-black/10 p-2 text-current transition-all hover:bg-black/20 hover:scale-110"
               >
-                <X size={24} />
+                <X className="w-5 h-5 md:w-6 md:h-6" />
               </button>
 
-              <div className="p-12 text-center space-y-8">
+              <div className="p-8 md:p-12 text-center space-y-6 md:space-y-8">
                 {/* 3D Icon Container */}
-                <div className="relative mx-auto w-48 h-48 premium-glow">
+                <div className="relative mx-auto w-32 h-32 md:w-48 md:h-48 premium-glow">
                   <motion.div
                     animate={{ 
                       y: [0, -10, 0],
@@ -72,27 +72,27 @@ export default function DrinkModal({ drink, isOpen, onClose, isDark }: DrinkModa
                   </motion.div>
                 </div>
 
-                <div className="space-y-4">
-                  <span className={`inline-block px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest ${
+                <div className="space-y-2 md:space-y-4">
+                  <span className={`inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest ${
                     isDark ? "bg-blue-500/10 text-blue-400" : "bg-blue-50 text-blue-600"
                   }`}>
                     Традиционный напиток
                   </span>
-                  <h2 className="text-5xl font-black tracking-tighter">{drink.name}</h2>
+                  <h2 className="text-3xl md:text-5xl font-black tracking-tighter">{drink.name}</h2>
                 </div>
 
-                <p className={`text-xl leading-relaxed opacity-80 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+                <p className={`text-base md:text-xl leading-relaxed opacity-80 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
                   {drink.description}
                 </p>
 
-                <div className={`p-8 rounded-[40px] border-2 flex flex-col items-center gap-4 transition-colors ${
+                <div className={`p-6 md:p-8 rounded-[30px] md:rounded-[40px] border-2 flex flex-col items-center gap-3 md:gap-4 transition-colors ${
                   isDark ? "bg-white/5 border-white/10" : "bg-blue-50/50 border-blue-100"
                 }`}>
-                  <div className="flex items-center gap-3 text-sm font-black uppercase tracking-widest text-blue-500">
-                    <Heart size={20} className="animate-pulse" />
+                  <div className="flex items-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-widest text-blue-500">
+                    <Heart className="animate-pulse w-4 h-4 md:w-5 md:h-5" />
                     <span>Полезные свойства</span>
                   </div>
-                  <p className="text-2xl font-black italic">
+                  <p className="text-xl md:text-2xl font-black italic">
                     «{drink.benefit}»
                   </p>
                 </div>

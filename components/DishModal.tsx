@@ -35,7 +35,7 @@ export default function DishModal({ dish, isOpen, onClose, isDark }: DishModalPr
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className={`pointer-events-auto w-full max-w-4xl overflow-hidden rounded-[40px] border-4 shadow-2xl ${
+              className={`pointer-events-auto w-full max-w-4xl overflow-hidden rounded-[30px] md:rounded-[40px] border-4 shadow-2xl ${
                 isDark 
                   ? "bg-[#111112]/95 border-white/10 text-white" 
                   : "bg-white border-white text-gray-900"
@@ -45,13 +45,13 @@ export default function DishModal({ dish, isOpen, onClose, isDark }: DishModalPr
                 {/* Close Button */}
                 <button
                   onClick={onClose}
-                  className="absolute right-6 top-6 z-10 rounded-full bg-black/20 p-2 text-white transition-all hover:bg-black/40 hover:scale-110 backdrop-blur-md"
+                  className="absolute right-4 top-4 md:right-6 md:top-6 z-20 rounded-full bg-black/20 p-2 text-white transition-all hover:bg-black/40 hover:scale-110 backdrop-blur-md"
                 >
-                  <X size={28} />
+                  <X className="w-6 h-6 md:w-7 md:h-7" />
                 </button>
 
                 {/* Left: Image & Badge */}
-                <div className="relative h-64 md:h-auto">
+                <div className="relative h-56 sm:h-64 md:h-auto">
                   <div className="absolute inset-0 bg-gray-200 animate-pulse" /> {/* Placeholder while loading */}
                   <Image
                     src={dish.image}
@@ -60,23 +60,23 @@ export default function DishModal({ dish, isOpen, onClose, isDark }: DishModalPr
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-8 left-8 text-white">
-                    <span className="inline-block px-4 py-1.5 bg-amber-500 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg">
+                  <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 text-white">
+                    <span className="inline-block px-3 py-1 md:px-4 md:py-1.5 bg-amber-500 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg">
                       {dish.category}
                     </span>
-                    <h2 className="mt-2 text-5xl font-black tracking-tighter leading-none">
+                    <h2 className="mt-1 md:mt-2 text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none">
                       {dish.name}
                     </h2>
                   </div>
                 </div>
 
                 {/* Right: Details */}
-                <div className="p-10 md:p-12 space-y-8 max-h-[80vh] overflow-y-auto custom-scrollbar">
+                <div className="p-6 sm:p-10 md:p-12 space-y-6 md:space-y-8 max-h-[70vh] md:max-h-[80vh] overflow-y-auto custom-scrollbar">
                   {/* Story */}
                   <section>
-                    <div className="flex items-center gap-3 mb-4">
-                      <Info className="text-amber-500" size={24} />
-                      <h3 className="text-xl font-black uppercase tracking-tight">История</h3>
+                    <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                      <Info className="text-amber-500 w-5 h-5 md:w-6 md:h-6" />
+                      <h3 className="text-lg md:text-xl font-black uppercase tracking-tight">История</h3>
                     </div>
                     <p className={`text-lg leading-relaxed opacity-80 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
                       {dish.story}
@@ -85,9 +85,9 @@ export default function DishModal({ dish, isOpen, onClose, isDark }: DishModalPr
 
                   {/* Ingredients */}
                   <section>
-                    <div className="flex items-center gap-3 mb-4">
-                      <Utensils className="text-amber-500" size={24} />
-                      <h3 className="text-xl font-black uppercase tracking-tight">Ингредиенты</h3>
+                    <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                      <Utensils className="text-amber-500 w-5 h-5 md:w-6 md:h-6" />
+                      <h3 className="text-lg md:text-xl font-black uppercase tracking-tight">Ингредиенты</h3>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {dish.ingredients.map((ing, i) => (
@@ -131,14 +131,14 @@ export default function DishModal({ dish, isOpen, onClose, isDark }: DishModalPr
                   </div>
 
                   {/* Tourist Tip */}
-                  <div className={`p-6 rounded-[32px] border-4 overflow-hidden relative ${
+                  <div className={`p-4 md:p-6 rounded-2xl md:rounded-[32px] border-4 overflow-hidden relative ${
                     isDark ? "bg-amber-500/10 border-amber-500/20" : "bg-amber-50 border-amber-100"
                   }`}>
                     <div className="relative z-10">
-                      <p className={`text-xs font-black uppercase tracking-widest mb-2 ${isDark ? "text-amber-400" : "text-amber-600"}`}>
+                      <p className={`text-[10px] font-black uppercase tracking-widest mb-1 md:mb-2 ${isDark ? "text-amber-400" : "text-amber-600"}`}>
                         💡 Совет путешественнику
                       </p>
-                      <p className="text-lg font-bold leading-relaxed italic opacity-95">
+                      <p className="text-base md:text-lg font-bold leading-relaxed italic opacity-95">
                         «{dish.touristTip}»
                       </p>
                     </div>
