@@ -11,19 +11,36 @@ export interface Dish {
   touristTip: string;
 }
 
+export interface Drink {
+  name: string;
+  description: string;
+  benefit: string;
+  iconType: string;
+}
+
+export type RegionId = "north" | "west" | "south" | "east" | "central";
+
+export interface TasteProfile {
+  meatiness: number;
+  spice: number;
+  sweetness: number;
+  sourness: number;
+  fatness: number;
+}
+
 export interface Region {
-  id: string;
+  id: RegionId;
   title: string;
   subtitle: string;
   color: string;
   stroke: string;
   activeColor: string;
   dishes: string[];
-  drinks: { name: string; description: string; benefit: string; iconType: string }[];
+  drinks: Drink[];
   history: string;
   mainHighlight: string;
   featuredDishSlugs: string[];
-  tasteProfile: { meatiness: number; spice: number; sweetness: number; sourness: number; fatness: number };
+  tasteProfile: TasteProfile;
   adminUnits: { name: string; type: string }[];
 }
 
